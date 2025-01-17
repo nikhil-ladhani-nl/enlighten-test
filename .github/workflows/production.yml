@@ -29,3 +29,4 @@ jobs:
             --theme $SHOPIFY_PRODUCTION_THEME_ID \
             --store $SHOPIFY_STORE_URL \
             --password $SHOPIFY_PASSWORD \
+            --allow-live
