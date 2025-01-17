@@ -3,7 +3,7 @@ name: Deploy Staging Theme
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   deploy:
