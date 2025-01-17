@@ -1,0 +1,31 @@
+name: Deploy Staging Theme
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    name: Deploy Staging Theme
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli
+
+      - name: Upload theme
+        env:
+          SHOPIFY_STAGING_THEME_ID: ${{ vars.SHOPIFY_STAGING_THEME_ID }}
+          SHOPIFY__STORE_URL: ${{ vars.SHOPIFY__STORE_URL }}
+          SHOPIFY__PASSWORD: ${{ secrets.SHOPIFY__PASSWORD }}
+        run: |
+          shopify theme push \
+            --json \
+            --theme $SHOPIFY_STAGING_THEME_ID \
+            --store $SHOPIFY__STORE_URL \
+            --password $SHOPIFY__PASSWORD \
