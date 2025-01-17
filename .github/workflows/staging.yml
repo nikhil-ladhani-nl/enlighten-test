@@ -23,6 +23,6 @@ jobs:
           shopify theme push \
             --json \
             --theme ${{ vars.SHOPIFY_STAGING_THEME_ID }}
-            --store ${{ vars.SHOPIFY__STORE_URL }} \
+            --store ${{ vars.SHOPIFY__STORE_URL }}
             --password ${{ secrets.SHOPIFY__PASSWORD }}
             --dir ${{ vars.THEME_PATH }}
