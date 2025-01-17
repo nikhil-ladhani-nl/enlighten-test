@@ -23,11 +23,9 @@ jobs:
           SHOPIFY_STAGING_THEME_ID: ${{ vars.SHOPIFY_STAGING_THEME_ID }}
           SHOPIFY__STORE_URL: ${{ vars.SHOPIFY__STORE_URL }}
           SHOPIFY__PASSWORD: ${{ secrets.SHOPIFY__PASSWORD }}
-          THEME_PATH: ${{ vars.THEME_PATH }}
         run: |
           shopify theme push \
             --json \
             --theme $SHOPIFY_STAGING_THEME_ID \
             --store $SHOPIFY__STORE_URL \
             --password $SHOPIFY__PASSWORD \
-            --dir $THEME_PATH
