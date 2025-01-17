@@ -21,11 +21,11 @@ jobs:
       - name: Upload theme
         env:
           SHOPIFY_STAGING_THEME_ID: ${{ vars.SHOPIFY_STAGING_THEME_ID }}
-          SHOPIFY__STORE_URL: ${{ vars.SHOPIFY__STORE_URL }}
-          SHOPIFY__PASSWORD: ${{ secrets.SHOPIFY__PASSWORD }}
+          SHOPIFY_STORE_URL: ${{ vars.SHOPIFY_STORE_URL }}
+          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
         run: |
           shopify theme push \
             --json \
             --theme $SHOPIFY_STAGING_THEME_ID \
-            --store $SHOPIFY__STORE_URL \
-            --password $SHOPIFY__PASSWORD \
+            --store $SHOPIFY_STORE_URL \
+            --password $SHOPIFY_PASSWORD \
