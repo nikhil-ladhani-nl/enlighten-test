@@ -19,10 +19,13 @@ jobs:
         run: npm install -g @shopify/cli
 
       - name: Upload theme
+        env:
+          SHOPIFY_PRODUCTION_THEME_ID: ${{ vars.SHOPIFY_PRODUCTION_THEME_ID }}
+          SHOPIFY_STORE_URL: ${{ vars.SHOPIFY_STORE_URL }}
+          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
         run: |
           shopify theme push \
             --json \
-            --theme ${{ vars.SHOPIFY_PRODUCTION_THEME_ID }}
-            --store ${{ vars.SHOPIFY__STORE_URL }} \
-            --password ${{ secrets.SHOPIFY__PASSWORD }}
-            --dir ${{ vars.THEME_PATH }}
+            --theme $SHOPIFY_PRODUCTION_THEME_ID \
+            --store $SHOPIFY_STORE_URL \
+            --password $SHOPIFY_PASSWORD \
